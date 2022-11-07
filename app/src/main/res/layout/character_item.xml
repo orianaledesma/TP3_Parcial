@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/product_image"
+            android:id="@+id/character_image"
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:layout_gravity="center" />
@@ -27,15 +27,15 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/product_description_text"
+                android:id="@+id/character_description_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/be_vietnam_semibold"
-                android:text="Descripción del producto"
+                android:text="Descripción del charactero"
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/product_price_text"
+                android:id="@+id/character_status_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

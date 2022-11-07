@@ -17,38 +17,38 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ProductDetailFragment.newInstance] factory method to
+ * Use the [CharacterDetailFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProductDetailFragment : Fragment() {
+class CharacterDetailFragment : Fragment() {
 
     private lateinit var description: TextView
-    private lateinit var price: TextView
-    private lateinit var productImage: ImageView
+    private lateinit var status: TextView
+    private lateinit var characterImage: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_detail, container, false)
+        return inflater.inflate(R.layout.fragment_character_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        description = view.findViewById(R.id.product_description)
-        price = view.findViewById(R.id.product_price)
-        productImage = view.findViewById(R.id.product_image)
+        description = view.findViewById(R.id.character_description)
+        status = view.findViewById(R.id.character_status)
+        characterImage = view.findViewById(R.id.character_image)
 
         arguments?.let {
-            val product = ProductDetailFragmentArgs.fromBundle(it).product
+            val character = CharacterDetailFragmentArgs.fromBundle(it).character
 
-            description.text = product.description
-            price.text = "$${product.price}"
+            description.text = character.name
+            status.text = "$${character.status}"
             Glide.with(this)
-                .load(product.imageLink)
-                .into(productImage)
+                .load(character.image)
+                .into(characterImage)
         }
 
     }

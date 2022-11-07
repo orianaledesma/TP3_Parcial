@@ -28,8 +28,8 @@
             android:name="password"
             app:argType="string" />
         <action
-            android:id="@+id/action_homeFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
+            android:id="@+id/action_homeFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -37,12 +37,12 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
-        android:id="@+id/productDetailFragment"
-        android:name="com.ort.edu.parcial_tp3.fragments.ProductDetailFragment"
-        android:label="fragment_product_detail"
-        tools:layout="@layout/fragment_product_detail" >
+        android:id="@+id/characterDetailFragment"
+        android:name="com.ort.edu.parcial_tp3.fragments.CharacterDetailFragment"
+        android:label="fragment_character_detail"
+        tools:layout="@layout/fragment_character_detail" >
         <argument
-            android:name="product"
-            app:argType="com.ort.edu.parcial_tp3.model.Product" />
+            android:name="character"
+            app:argType="com.ort.edu.parcial_tp3.model.Character" />
     </fragment>
 </navigation>

@@ -1,15 +1,23 @@
 package com.ort.edu.parcial_tp3
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
+import com.ort.edu.parcial_tp3.api.RickAndMortyService
+import com.ort.edu.parcial_tp3.data.CharactersResponse
+import retrofit2.Call
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
     private var userName: String? = null
+ //   lateinit var listView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

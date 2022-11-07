@@ -19,45 +19,59 @@
 
     <EditText
         android:id="@+id/username_input"
-        android:layout_width="match_parent"
-        android:paddingStart="10dp"
-        android:layout_height="45dp"
-        android:hint="@string/user"
-        app:layout_constraintTop_toBottomOf="@id/title_text"
+        android:layout_width="370dp"
+        android:layout_height="66dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/box_shape"/>
+        android:background="@drawable/box_shape"
+        android:hint="@string/user"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_text" />
 
     <EditText
         android:id="@+id/password_input"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:paddingStart="10dp"
-        android:hint="@string/password"
-        app:layout_constraintTop_toBottomOf="@id/username_input"
+        android:layout_width="366dp"
+        android:layout_height="61dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/box_shape"/>
+        android:background="@drawable/box_shape"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username_input" />
 
     <Button
         android:id="@+id/login_button"
+        android:layout_width="350dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="84dp"
         android:text="@string/continuar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/password_input"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_input" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Olvido su contraseña?"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.609" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

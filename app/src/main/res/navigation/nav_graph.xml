@@ -32,7 +32,7 @@
             app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/settingsFragment2"
         android:name="com.ort.edu.parcial_tp3.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
@@ -45,4 +45,8 @@
             android:name="product"
             app:argType="com.ort.edu.parcial_tp3.model.Product" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.ort.edu.parcial_tp3.fragments.SettingsFragment2"
+        android:label="SettingsFragment2" />
 </navigation>

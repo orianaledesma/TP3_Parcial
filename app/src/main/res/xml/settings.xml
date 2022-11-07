@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_night_mode"
+        android:summaryOff="Activar modo nocturno"
+        android:summaryOn="Desactivar modo nocturno"
+        android:title="Modo Nocturno" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_buscador"
+        android:summaryOff="Activa el buscador"
+        android:summaryOn="Desactiva el buscador"
+        android:title="Activar Buscador" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_agregar_favoritos"
+        android:title="Agregar Favoritos" />
+</PreferenceScreen>

@@ -1,5 +1,8 @@
 package com.ort.edu.parcial_tp3.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,17 +26,19 @@ class CharacterDetailFragment : Fragment() {
     private lateinit var origin: TextView
     private lateinit var especie: TextView
     private lateinit var add: FloatingActionButton
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        sharedPref = requireContext().getSharedPreferences("ParcialTP3SharedPreferences", Context.MODE_PRIVATE)
         return inflater.inflate(R.layout.character_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         name = view.findViewById(R.id.character_name)
         status = view.findViewById(R.id.character_status)
@@ -41,6 +46,13 @@ class CharacterDetailFragment : Fragment() {
         especie = view.findViewById(R.id.character_especie)
         characterImage = view.findViewById(R.id.character_image)
         add = view.findViewById(R.id.fab)
+
+        if (sharedPref.getBoolean("nightMode", true)) {
+            name.setTextColor(Color.WHITE)
+            status.setTextColor(Color.WHITE)
+            origin.setTextColor(Color.WHITE)
+            especie.setTextColor(Color.WHITE)
+        }
 
         arguments?.let {
             val character = CharacterDetailFragmentArgs.fromBundle(it).character

@@ -1,5 +1,8 @@
 package com.ort.edu.parcial_tp3.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -28,12 +31,14 @@ class FavoritesFragment : Fragment(), OnCharacterClickedListener {
     private lateinit var characterRecyclerView: RecyclerView
     private lateinit var characterList: List<CharacterData>
     private lateinit var title: TextView
+    private lateinit var sharedPref: SharedPreferences
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        sharedPref = requireContext().getSharedPreferences("ParcialTP3SharedPreferences", Context.MODE_PRIVATE)
         return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
 
@@ -43,7 +48,9 @@ class FavoritesFragment : Fragment(), OnCharacterClickedListener {
         characterRecyclerView = view.findViewById(R.id.favorite_recycler_view)
         title = view.findViewById(R.id.text_favorite)
 
-
+        if (sharedPref.getBoolean("nightMode", true)) {
+            title.setTextColor(Color.WHITE)
+        }
         title.text = "Hola, ${UserSession.userName}, estos son tus personajes favoritos"
         getCharactersFavorite()
     }

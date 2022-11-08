@@ -1,5 +1,8 @@
 package com.ort.edu.parcial_tp3.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -28,28 +31,32 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
     private lateinit var characterRecyclerView: RecyclerView
     private lateinit var characterList: List<CharacterData>
     private lateinit var title: TextView
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        sharedPref = requireContext().getSharedPreferences("ParcialTP3SharedPreferences", Context.MODE_PRIVATE)
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         characterRecyclerView = view.findViewById(R.id.product_recyclerview)
         title = view.findViewById(R.id.home_title)
 
+        if (sharedPref.getBoolean("nightMode", true)) {
+            title.setTextColor(Color.WHITE)
+        }
 
         title.text = "Hola, ${UserSession.userName}"
         getCharacters()
     }
 
     fun getCharacters() {
-        val baseURL = getString(R.string.url_api)
-
         val service = RickAndMortyService.create();
 
         // Lleno una lista con personajes

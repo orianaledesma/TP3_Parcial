@@ -3,46 +3,77 @@ package com.ort.edu.parcial_tp3
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private var userName: String? = null
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupBottomNavigationView()
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.nav_view)
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        setupDrawerLayout()
     }
 
-    /**
-     * Configuro la barra inferior de navegación
-     */
-    private fun setupBottomNavigationView() {
-        // Busco los componentes en la View generada por su id
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
 
-        // Relaciono mi Bottom Nav View con mi nav graph
-        bottomNavView.setupWithNavController(navHostFragment.navController)
+    private fun setupDrawerLayout() {
 
-        // Agrego un listener para poder escuchar cada vez que se realiza una navegacion
-        navHostFragment.navController.addOnDestinationChangedListener { _, destination, arguments ->
+        val navController = navHostFragment.navController
+        navigationView.setupWithNavController(navController)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
-            // Si mi destino es el login entonces oculto la barra inferior. Caso contrario la muestro
+        navController.addOnDestinationChangedListener { _, destination, arguments ->
+            // Aca le digo que quiero que mi icono izquierdo de la appbar sea el del drawer
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.hamburger)
+
             if (destination.id == R.id.loginFragment) {
-                bottomNavView.visibility = View.GONE
+                nav_view.visibility = View.GONE
             } else {
-                bottomNavView.visibility = View.VISIBLE
+                nav_view.visibility = View.VISIBLE
 
-                // Si mi destino es la Home, tomo el userName que recibio por parametro y lo almaceno en un Object
                 if (destination.id == R.id.homeFragment) {
-                    arguments?.getString("username")?.let { UserSession.userName = it }
-                }
+                     arguments?.getString("username")?.let { UserSession.userName = it }
+                    }
             }
         }
     }
+            // Si mi destino es el login entonces oculto la barra inferior. Caso contrario la muestro
+          //  if (destination.id == R.id.loginFragment) {
+           //     nav_view.visibility = View.GONE
+            //} else {
+              //  nav_view.visibility = View.VISIBLE
+
+                // Si mi destino es la Home, tomo el userName que recibio por parametro y lo almaceno en un Object
+               //if (destination.id == R.id.homeFragment) {
+                 //  arguments?.getString("username")?.let { UserSession.userName = it }
+               //}
+           //}
+        //}
+
+      override fun onSupportNavigateUp(): Boolean {
+            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                drawerLayout.openDrawer(GravityCompat.START)
+           }
+
+           return false
+        }
+
 }

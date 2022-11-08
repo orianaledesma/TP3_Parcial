@@ -7,7 +7,15 @@
         android:title="Home" />
 
     <item
+        android:icon="@drawable/_849817_favorite_star_favorites_favourite_multimedia_icon"
+        android:title="Favorites" />
+
+    <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings"
         android:title="Settings" />
+
+    <item
+        android:icon="@drawable/logoout"
+        android:title="LogOut" />
 </menu>

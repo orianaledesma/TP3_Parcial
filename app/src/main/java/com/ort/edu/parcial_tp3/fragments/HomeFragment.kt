@@ -19,7 +19,6 @@ import com.ort.edu.parcial_tp3.data.CharacterData
 import com.ort.edu.parcial_tp3.data.CharactersResponse
 import com.ort.edu.parcial_tp3.listener.OnCharacterClickedListener
 import com.ort.edu.parcial_tp3.model.Character
-import com.ort.edu.parcial_tp3.utils.Images
 import retrofit2.Call
 import retrofit2.Response
 
@@ -52,8 +51,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
         val service = RickAndMortyService.create();
 
-        // Lleno una lista con characteros que cree a mano
-
+        // Lleno una lista con personajes
         service.getListCharacters()?.enqueue(
             object : retrofit2.Callback<CharactersResponse?> {
                 override fun onResponse(
@@ -67,16 +65,6 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
                        Snackbar.make(characterRecyclerView, "Metodo ondCreate", Snackbar.LENGTH_LONG).show()
                         characterList = (response?.results as List<CharacterData>)
                         fillCharacterList()
-                       // val response: CharactersResponse? = (response.body())!!
-                       // Log.w("SPLASH LLAMADA", "$response")
-                       // if (response != null) {
-                       //     for (character in response.results) {
-                       //         Log.e("Example", response.results .toString())
-                                // markers.add(DeaMarker(dea!!.id, dea!!.latitude.value.toDouble(), dea!!.longitude.value.toDouble(), dea!!.active.value, dea!!.datestamp.value, dea!!.address.value))
-                        //    }
-                        //}
-
-
                     }
                 }
                 override fun onFailure(call: Call<CharactersResponse?>, t: Throwable) {
@@ -87,13 +75,6 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
 
     private fun fillCharacterList() {
-//        val character1 = Character("Rick blabla", Images.pixel, "Alive", "earth", "Human")
-//        val character2 = Character("Morty blabla", Images.remera, "Death", "earth", "extraterrestre")
-//        val character3 = Character("Rick blabla", Images.zapatillas, "Alive", "earth", "Human")
-//        val character4 = Character("Morty blabla", Images.heladera, "Death", "earth", "extraterrestre")
-//
-//
-//        characterList = listOf(character1, character2, character3, character4)
         val layoutManager = LinearLayoutManager(context)
         characterRecyclerView.layoutManager = layoutManager
         characterRecyclerView.adapter = CharacterAdapter(characterList, this)

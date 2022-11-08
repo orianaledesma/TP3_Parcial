@@ -1,34 +1,32 @@
 package com.ort.edu.parcial_tp3.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.ort.edu.parcial_tp3.R
+import com.ort.edu.parcial_tp3.UserSession
+import com.ort.edu.parcial_tp3.adapter.CharacterAdapter
+import com.ort.edu.parcial_tp3.adapter.CharacterFavoriteAdapter
+import com.ort.edu.parcial_tp3.api.RickAndMortyService
+import com.ort.edu.parcial_tp3.data.CharacterData
+import com.ort.edu.parcial_tp3.listener.OnCharacterClickedListener
+import com.ort.edu.parcial_tp3.model.Character
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoritesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FavoritesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class FavoritesFragment : Fragment(), OnCharacterClickedListener {
+    private lateinit var characterRecyclerView: RecyclerView
+    private lateinit var characterList: List<CharacterData>
+    private lateinit var title: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +36,57 @@ class FavoritesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FavoritesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FavoritesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        characterRecyclerView = view.findViewById(R.id.favorite_recycler_view)
+        title = view.findViewById(R.id.text_favorite)
+
+
+        title.text = "Hola, ${UserSession.userName}, estos son tus personajes favoritos"
+        getCharactersFavorite()
+    }
+
+
+    private fun getCharactersFavorite() {
+        val service = RickAndMortyService.create();
+        val listFavorite= "1,5,7"
+        // Lleno una lista con characteros que cree a mano
+        service.getFavoriteCharacters(listFavorite)?.enqueue(
+            object : Callback<List<CharacterData?>?> {
+                override fun onResponse(
+                    call: Call<List<CharacterData?>?>,
+                    response: Response<List<CharacterData?>?>
+                ) {
+                    if (response.isSuccessful) {
+                        val info = response.body()
+                        Log.e("Example", response.body().toString())
+                        val response: List<CharacterData> = (info as List<CharacterData>)!!
+                        Snackbar.make(characterRecyclerView, "Metodo ondCreate", Snackbar.LENGTH_LONG).show()
+                        characterList = response
+                        fillCharacterList()
+                    }
                 }
-            }
+
+                override fun onFailure(call: Call<List<CharacterData?>?>, t: Throwable) {
+                    Log.e("Example", t.stackTraceToString())
+                }
+            })
+    }
+
+
+    private fun fillCharacterList() {
+        val layoutManager = LinearLayoutManager(context)
+        characterRecyclerView.layoutManager = layoutManager
+        characterRecyclerView.adapter = CharacterFavoriteAdapter(characterList, this)
+    }
+
+
+    override fun onCharacterSelected(character: Character) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCharacterDetailFragment(character))
     }
 }
+
+
+
+

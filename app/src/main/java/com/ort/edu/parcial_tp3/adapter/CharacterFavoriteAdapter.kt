@@ -12,9 +12,9 @@ import com.ort.edu.parcial_tp3.listener.OnCharacterClickedListener
 import com.ort.edu.parcial_tp3.model.Character
 
 
-class CharacterAdapter(
+class CharacterFavoriteAdapter(
     private val characterList: List<CharacterData>,
-    private val onCharacterClickedListener: HomeFragment,
+    private val onCharacterClickedListener: FavoritesFragment
 
     ) : RecyclerView.Adapter<CharacterViewHolder>() {
 

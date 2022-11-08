@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Usuario/Desktop/proyecto/TP3_Parcial/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/Usuario/Desktop/proyecto/TP3_Parcial/app/src/main/res/layout/fragment_home.xml" value="0.152" />
+        <entry key="..\:/Users/Usuario/Desktop/proyecto/TP3_Parcial/app/src/main/res/layout/fragment_login.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/Usuario/Desktop/proyecto/TP3_Parcial/app/src/main/res/layout/product_item.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/Usuario/Desktop/proyecto/TP3_Parcial/app/src/main/res/menu/main_menu.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/drawable-v24/hamburger.xml" value="0.2735" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2735" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/card_item.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/character_detail.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/fragment_favorites.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/fragment_home.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/fragment_login.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/layout/fragment_settings.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/menu/main_menu.xml" value="0.4" />
+        <entry key="app/src/main/res/drawable-v24/hamburger.xml" value="0.1645" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.45865834554036455" />
+        <entry key="app/src/main/res/layout/character_detail.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_favorite_list.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.24544270833333331" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.15520833333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

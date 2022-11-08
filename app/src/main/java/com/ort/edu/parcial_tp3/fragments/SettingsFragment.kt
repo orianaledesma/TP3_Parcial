@@ -21,7 +21,9 @@ import com.ort.edu.parcial_tp3.UserSession
 class SettingsFragment : Fragment() {
 
     private lateinit var avatarImage: ImageView
-    private lateinit var switch: Switch
+    private lateinit var switchTheme: Switch
+    private lateinit var switchFav: Switch
+    private lateinit var switchSearch: Switch
     private lateinit var sharedPref: SharedPreferences
 
     override fun onCreateView(
@@ -29,21 +31,21 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         sharedPref = requireContext().getSharedPreferences("ParcialTP3SharedPreferences", Context.MODE_PRIVATE)
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        avatarImage = view.findViewById(R.id.avatar_image)
-        switch = view.findViewById(R.id.switchTheme)
+        switchTheme = view.findViewById(R.id.switch_theme)
+        switchFav = view.findViewById(R.id.switch_fav)
+        switchSearch = view.findViewById(R.id.switch_search)
         Log.i("something",sharedPref.toString())
 
         if (sharedPref.getBoolean("nightMode", false)) {
-            switch.isChecked = true
+            switchTheme.isChecked = true
         }
 
-        switch.setOnCheckedChangeListener {
+        switchTheme.setOnCheckedChangeListener {
                 buttonView, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -54,21 +56,5 @@ class SettingsFragment : Fragment() {
                 sharedPref.edit().putBoolean("nightMode", false).apply()
             }
         }
-
-        val nameText = view.findViewById<TextView>(R.id.nameText)
-        val passwordText = view.findViewById<TextView>(R.id.password_text)
-
-        // Lo que hace esto es mostrar un subrayado para los TextView
-        nameText.paintFlags = nameText.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        passwordText.paintFlags = passwordText.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-
-        nameText.text = UserSession.userName
-
-        // Cargo la imagen hardcodeada del avatar para la imagen. Como uso .circleCrop() entonces va a aparecer de forma
-        // redondeada en lugar de cuadrada como lo haria por default
-        Glide.with(this)
-            .load("https://www.w3schools.com/howto/img_avatar.png")
-            .circleCrop()
-            .into(avatarImage)
     }
 }

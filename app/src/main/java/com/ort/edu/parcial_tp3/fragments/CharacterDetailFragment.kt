@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.ort.edu.parcial_tp3.R
-
+import com.ort.edu.parcial_tp3.model.Character
+import com.ort.edu.parcial_tp3.viewModel.ViewModelCharacter
 
 
 class CharacterDetailFragment : Fragment() {
@@ -23,6 +26,8 @@ class CharacterDetailFragment : Fragment() {
     private lateinit var origin: TextView
     private lateinit var especie: TextView
     private lateinit var add: FloatingActionButton
+    private lateinit var character: Character
+    private val viewModel: ViewModelCharacter by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,9 +46,12 @@ class CharacterDetailFragment : Fragment() {
         especie = view.findViewById(R.id.character_especie)
         characterImage = view.findViewById(R.id.character_image)
         add = view.findViewById(R.id.fab)
+        //character = Character(name.toString(), characterImage.toString(),status.toString(),origin.toString(), especie.toString())
+
+
 
         arguments?.let {
-            val character = CharacterDetailFragmentArgs.fromBundle(it).character
+            character = CharacterDetailFragmentArgs.fromBundle(it).character
 
             name.text =character.name
             status.text = "status: ${character.status}"
@@ -55,10 +63,12 @@ class CharacterDetailFragment : Fragment() {
                 .into(characterImage)
         }
         add.setOnClickListener { view ->
-            val action = CharacterDetailFragmentDirections.actionCharacterDetailFragmentToFavoritesFragment()
+
+            val action = CharacterDetailFragmentDirections.actionCharacterDetailFragmentToFavoritesFragment(character)
             Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
                 .show()
+            viewModel.characterList.add(character)
             view.findNavController().navigate(action)
         }
     }

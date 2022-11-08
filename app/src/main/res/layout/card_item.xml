@@ -45,9 +45,10 @@
             android:layout_height="wrap_content"
             android:text="status"
             android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character_name_text"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="126dp" />
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

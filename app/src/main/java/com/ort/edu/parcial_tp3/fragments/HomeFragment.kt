@@ -43,7 +43,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
         title = view.findViewById(R.id.home_title)
 
 
-        title.text = "Hola, ${UserSession.userName}, estos son tus personajes favoritos"
+        title.text = "Hola, ${UserSession.userName}"
         getCharacters()
     }
 

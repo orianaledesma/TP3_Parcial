@@ -20,12 +20,13 @@
         <entry key="..\:/Users/Usuario/Desktop/tp3_final/TP3_Parcial/app/src/main/res/menu/main_menu.xml" value="0.4" />
         <entry key="app/src/main/res/drawable-v24/hamburger.xml" value="0.1645" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/card_item.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.45865834554036455" />
         <entry key="app/src/main/res/layout/character_detail.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_favorite_list.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.24544270833333331" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.15520833333333334" />
       </map>
     </option>

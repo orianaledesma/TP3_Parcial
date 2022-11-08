@@ -8,13 +8,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RickAndMortyService {
     companion object {
-        fun create(baseUrl: String): RickAndMortyAPI {
+        private const val BASE_URL = "https://rickandmortyapi.com/api/character/"
+        fun create(): RickAndMortyAPI {
             val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)
                 .build()
             return Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

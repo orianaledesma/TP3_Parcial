@@ -7,14 +7,14 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface RickAndMortyAPI {
-    @GET("api/character")
+    @GET(".")
     fun getListCharacters(): Call<CharactersResponse?>?
 
-    @GET("api/character/{characterId}")
-    fun getCharacterById(@Path("characterId") characterId: Int ):Call<Character?>?
+//    @GET("api/character/{characterId}")
+ //   fun getCharacterById(@Path("characterId") characterId: Int ):Call<Character?>?
 
-    @GET("api/character/{charactersIds}")
-    fun getFavoriteCharacters(@Path("charactersIds") charactersIds:String):Call<List<Character?>?>?
+   // @GET("api/character/{charactersIds}")
+   // fun getFavoriteCharacters(@Path("charactersIds") charactersIds:String):Call<List<Character?>?>?
 
 
 }

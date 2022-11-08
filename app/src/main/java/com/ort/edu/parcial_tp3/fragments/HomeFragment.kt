@@ -49,7 +49,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
     fun getCharacters() {
         val baseURL = getString(R.string.url_api)
 
-        val service = RickAndMortyService.create(baseURL);
+        val service = RickAndMortyService.create();
 
         // Lleno una lista con characteros que cree a mano
 
@@ -63,9 +63,19 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
                         val info = response.body()
                         Log.e("Example", response.body().toString())
                         val response: CharactersResponse? = (info as CharactersResponse)!!
-                        Snackbar.make(characterRecyclerView, "Metodo ondCreate", Snackbar.LENGTH_LONG).show()
-                        characterList = (response?.result as List<Character>)
+                       Snackbar.make(characterRecyclerView, "Metodo ondCreate", Snackbar.LENGTH_LONG).show()
+                        characterList = (response?.results as List<Character>)
                         fillCharacterList()
+                       // val response: CharactersResponse? = (response.body())!!
+                       // Log.w("SPLASH LLAMADA", "$response")
+                       // if (response != null) {
+                       //     for (character in response.results) {
+                       //         Log.e("Example", response.results .toString())
+                                // markers.add(DeaMarker(dea!!.id, dea!!.latitude.value.toDouble(), dea!!.longitude.value.toDouble(), dea!!.active.value, dea!!.datestamp.value, dea!!.address.value))
+                        //    }
+                        //}
+
+
                     }
                 }
                 override fun onFailure(call: Call<CharactersResponse?>, t: Throwable) {

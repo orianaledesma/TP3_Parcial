@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -75,7 +76,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
 
     private fun fillCharacterList() {
-        val layoutManager = LinearLayoutManager(context)
+        val layoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
         characterRecyclerView.layoutManager = layoutManager
         characterRecyclerView.adapter = CharacterAdapter(characterList, this)
     }

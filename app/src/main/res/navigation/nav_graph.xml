@@ -44,5 +44,13 @@
         <argument
             android:name="character"
             app:argType="com.ort.edu.parcial_tp3.model.Character" />
+        <action
+            android:id="@+id/action_characterDetailFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.ort.edu.parcial_tp3.fragments.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>

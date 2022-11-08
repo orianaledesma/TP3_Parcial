@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -54,11 +55,12 @@ class CharacterDetailFragment : Fragment() {
                 .into(characterImage)
         }
         add.setOnClickListener { view ->
+            val action = CharacterDetailFragmentDirections.actionCharacterDetailFragmentToFavoritesFragment()
             Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
                 .show()
+            view.findNavController().navigate(action)
         }
-
     }
 
 }

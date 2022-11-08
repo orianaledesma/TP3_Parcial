@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    android:label="Favoritos"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -19,8 +20,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <argument
             android:name="username"
             app:argType="string" />
@@ -39,8 +40,8 @@
     <fragment
         android:id="@+id/characterDetailFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.CharacterDetailFragment"
-        android:label="fragment_product_detail"
-        tools:layout="@layout/character_detail" >
+        android:label="Detalles"
+        tools:layout="@layout/character_detail">
         <argument
             android:name="character"
             app:argType="com.ort.edu.parcial_tp3.model.Character" />
@@ -51,6 +52,12 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.FavoritesFragment"
-        android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_favorites">
+        <argument
+            android:name="character"
+            app:argType="com.ort.edu.parcial_tp3.model.Character" />
+    </fragment>
+
+
 </navigation>

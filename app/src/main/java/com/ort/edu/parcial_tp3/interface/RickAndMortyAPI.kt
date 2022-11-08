@@ -1,6 +1,5 @@
 package com.ort.edu.parcial_tp3.`interface`
 
-import com.ort.edu.parcial_tp3.data.Character
 import com.ort.edu.parcial_tp3.data.CharactersResponse
 import retrofit2.Call
 import retrofit2.http.GET

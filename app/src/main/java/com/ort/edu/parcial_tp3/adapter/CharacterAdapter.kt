@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ort.edu.parcial_tp3.R
+import com.ort.edu.parcial_tp3.data.CharacterData
+import com.ort.edu.parcial_tp3.data.OriginCharacter
 import com.ort.edu.parcial_tp3.listener.OnCharacterClickedListener
 import com.ort.edu.parcial_tp3.model.Character
 
 
 class CharacterAdapter(
-    private val characterList: List<Character>,
+    private val characterList: List<CharacterData>,
     private val onCharacterClickedListener: OnCharacterClickedListener
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 
@@ -20,7 +22,12 @@ class CharacterAdapter(
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
 
-        val character = characterList[position]
+        val name = characterList[position].name
+        val imageLink = characterList[position].image
+        val status = characterList[position].status
+        val origin = characterList[position].origin.name
+        val especie = characterList[position].species
+        val character =Character(name,imageLink,status,origin, especie)
 
         holder.bind(character)
 

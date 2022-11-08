@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,12 +23,17 @@ import com.ort.edu.parcial_tp3.model.Character
 import com.ort.edu.parcial_tp3.utils.Images
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 
 class HomeFragment : Fragment(), OnCharacterClickedListener {
     private lateinit var characterRecyclerView: RecyclerView
     private lateinit var characterList: List<CharacterData>
     private lateinit var title: TextView
+
+    //agregado
+    private lateinit var txtBuscar: SearchView
+    private lateinit var listaTemporal: MutableList<CharacterData>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +51,11 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
         title.text = "Hola, ${UserSession.userName}, estos son tus personajes favoritos"
         getCharacters()
+      //buscador()
     }
+
+
+
 
     fun getCharacters() {
         val baseURL = getString(R.string.url_api)
@@ -102,5 +112,34 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
     override fun onCharacterSelected(character: Character) {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCharacterDetailFragment(character))
+    }
+
+    private fun buscador(){
+        txtBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                listaTemporal.clear()
+                val searchText = newText!!.lowercase(Locale.getDefault())
+                if (searchText.isNotEmpty()) { characterList.forEach {
+                    if (it.name!!.lowercase(Locale.getDefault()).contains(searchText)) {
+                        listaTemporal.add(it)
+                    }
+                }
+
+
+                } else {
+                    listaTemporal.clear()
+                    listaTemporal.addAll(characterList)
+
+                }
+
+
+                return false
+            }
+        })
     }
 }

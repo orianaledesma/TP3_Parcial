@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -25,6 +26,7 @@ import com.ort.edu.parcial_tp3.listener.OnCharacterClickedListener
 import com.ort.edu.parcial_tp3.model.Character
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 
 class HomeFragment : Fragment(), OnCharacterClickedListener {
@@ -32,6 +34,8 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
     private lateinit var characterList: List<CharacterData>
     private lateinit var title: TextView
     private lateinit var sharedPref: SharedPreferences
+    private lateinit var txtBuscar: SearchView
+    private var listaTemporal: MutableList<CharacterData> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +47,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        txtBuscar = view.findViewById(R.id.buscador)
 
         characterRecyclerView = view.findViewById(R.id.product_recyclerview)
         title = view.findViewById(R.id.home_title)
@@ -54,6 +58,7 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
         title.text = "Hola, ${UserSession.userName}"
         getCharacters()
+        buscador()
     }
 
     fun getCharacters() {
@@ -81,6 +86,42 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
             })
     }
 
+    private fun buscador(){
+
+        txtBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                listaTemporal.clear()
+                val searchText = newText!!.lowercase(Locale.getDefault())
+                if (searchText.isNotEmpty()) { characterList.forEach {
+                    if (it.name!!.lowercase(Locale.getDefault()).contains(searchText)) {
+                        listaTemporal.add(it)
+                    }
+                }
+
+
+                } else {
+                    listaTemporal.clear()
+                    listaTemporal.addAll(characterList)
+
+                }
+
+                fillSearch(listaTemporal)
+                return false
+            }
+        })
+    }
+
+    private fun fillSearch(listaTemporal: MutableList<CharacterData>) {
+
+        val layoutManager = LinearLayoutManager(context)
+        characterRecyclerView.layoutManager = layoutManager
+        characterRecyclerView.adapter = CharacterAdapter(listaTemporal, this)
+    }
 
     private fun fillCharacterList() {
         val layoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)

@@ -10,10 +10,10 @@ interface RickAndMortyAPI {
     @GET(".")
     fun getListCharacters(): Call<CharactersResponse?>?
 
-    @GET("/{characterId}")
+    @GET("{characterId}")
     fun getCharacterById(@Path("characterId") characterId: Int ):Call<CharacterData?>?
 
-    @GET("/{charactersIds}")
+    @GET("{charactersIds}")
     fun getFavoriteCharacters(@Path("charactersIds") charactersIds:String):Call<List<CharacterData?>?>?
 
 

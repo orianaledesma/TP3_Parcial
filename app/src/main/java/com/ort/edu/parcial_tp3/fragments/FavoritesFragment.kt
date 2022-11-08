@@ -83,7 +83,7 @@ class FavoritesFragment : Fragment(), OnCharacterClickedListener {
 
 
     override fun onCharacterSelected(character: Character) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCharacterDetailFragment(character))
+        findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToCharacterDetailFragment(character))
     }
 }
 

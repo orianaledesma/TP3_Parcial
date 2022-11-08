@@ -8,6 +8,6 @@
     <string name="user">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="continuar">Continuar</string>
-    <string name="url_api">https://rickandmortyapi.com/</string>
+    <string name="url_api">https://rickandmortyapi.com/api/character/</string>
 
 </resources>

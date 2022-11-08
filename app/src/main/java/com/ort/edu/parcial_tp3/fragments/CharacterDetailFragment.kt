@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.ort.edu.parcial_tp3.R
 
 
@@ -19,6 +21,7 @@ class CharacterDetailFragment : Fragment() {
     private lateinit var characterImage: ImageView
     private lateinit var origin: TextView
     private lateinit var especie: TextView
+    private lateinit var add: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +39,7 @@ class CharacterDetailFragment : Fragment() {
         origin = view.findViewById(R.id.character_origin)
         especie = view.findViewById(R.id.character_especie)
         characterImage = view.findViewById(R.id.character_image)
+        add = view.findViewById(R.id.fab)
 
         arguments?.let {
             val character = CharacterDetailFragmentArgs.fromBundle(it).character
@@ -48,6 +52,11 @@ class CharacterDetailFragment : Fragment() {
             Glide.with(this)
                 .load(character.imageLink)
                 .into(characterImage)
+        }
+        add.setOnClickListener { view ->
+            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
         }
 
     }

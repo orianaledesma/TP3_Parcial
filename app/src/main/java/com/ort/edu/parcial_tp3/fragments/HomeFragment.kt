@@ -33,7 +33,8 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
     //agregado
     private lateinit var txtBuscar: SearchView
-    private lateinit var listaTemporal: MutableList<CharacterData>
+    private var listaTemporal: MutableList<CharacterData> = mutableListOf()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,11 +48,12 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
         characterRecyclerView = view.findViewById(R.id.product_recyclerview)
         title = view.findViewById(R.id.home_title)
+        txtBuscar = view.findViewById(R.id.buscador)
 
 
-        title.text = "Hola, ${UserSession.userName}, estos son tus personajes favoritos"
+        title.text = "Bienvenido ${UserSession.userName},"
         getCharacters()
-      //buscador()
+      buscador()
     }
 
 
@@ -115,9 +117,10 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
     }
 
     private fun buscador(){
+
         txtBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                TODO("Not yet implemented")
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -137,9 +140,15 @@ class HomeFragment : Fragment(), OnCharacterClickedListener {
 
                 }
 
-
+                fillSearch(listaTemporal)
                 return false
             }
         })
+    }
+    private fun fillSearch(listaTemporal: MutableList<CharacterData>) {
+
+        val layoutManager = LinearLayoutManager(context)
+        characterRecyclerView.layoutManager = layoutManager
+        characterRecyclerView.adapter = CharacterAdapter(listaTemporal, this)
     }
 }

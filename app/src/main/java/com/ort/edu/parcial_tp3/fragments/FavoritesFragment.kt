@@ -36,6 +36,8 @@ class FavoritesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorites, container, false)
+
+
     }
 
     companion object {

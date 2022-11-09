@@ -53,3 +53,6 @@ Para la app se desarrolló 1 Activity y 5 Fragments.
   fragment_home --Z fragmento del home
   fragment_login --> fragmento con los campos para hacer el login
   fragment_settings --> fragmento con los datos para el setting del user de la app
+  
+  * Uso de la aplicación
+  ![Alt text](https://i.postimg.cc/Cx5ZPbvT/Whats-App-Image-2022-11-08-at-7-56-07-PM-2.jpg?raw=true "Title")

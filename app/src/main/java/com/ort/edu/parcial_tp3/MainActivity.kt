@@ -2,6 +2,7 @@ package com.ort.edu.parcial_tp3
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -10,6 +11,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.ort.edu.parcial_tp3.viewModel.ViewModelCharacter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
+
+    val viewModel : ViewModelCharacter by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,18 +57,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-            // Si mi destino es el login entonces oculto la barra inferior. Caso contrario la muestro
-          //  if (destination.id == R.id.loginFragment) {
-           //     nav_view.visibility = View.GONE
-            //} else {
-              //  nav_view.visibility = View.VISIBLE
 
-                // Si mi destino es la Home, tomo el userName que recibio por parametro y lo almaceno en un Object
-               //if (destination.id == R.id.homeFragment) {
-                 //  arguments?.getString("username")?.let { UserSession.userName = it }
-               //}
-           //}
-        //}
 
       override fun onSupportNavigateUp(): Boolean {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

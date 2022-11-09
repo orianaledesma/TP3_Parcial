@@ -50,11 +50,14 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.ort.edu.parcial_tp3.fragments.FavoritesFragment"
+       android:name="com.ort.edu.parcial_tp3.fragments.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" >
         <action
             android:id="@+id/action_favoritesFragment_to_characterDetailFragment"
             app:destination="@id/characterDetailFragment" />
+        <argument
+            android:name="character"
+            app:argType="com.ort.edu.parcial_tp3.model.Character" />
     </fragment>
 </navigation>

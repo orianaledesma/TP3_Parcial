@@ -1,4 +1,4 @@
-Parcial Taller Programación 3
+### Parcial Taller Programación 3
 
 Grupo 6 (Equipo Consorcios Inteligentes) :
 ------------------------------------------
@@ -54,10 +54,34 @@ Para la app se desarrolló 1 Activity y 5 Fragments.
   fragment_login --> fragmento con los campos para hacer el login
   fragment_settings --> fragmento con los datos para el setting del user de la app
   
-  * Uso de la aplicación
-  ![Alt text](https://i.postimg.cc/Cx5ZPbvT/Whats-App-Image-2022-11-08-at-7-56-07-PM-2.jpg?raw=true "Title")
-  *Favoritos
-   ![Alt text]( https://i.postimg.cc/FKx5V4CB/Imagen-de-Whats-App-2022-11-08-a-las-21-56-06.jpg)
-  *Detalle
-  ![Alt text](https://i.postimg.cc/K8ZdcV87/detalle.jpg)
+  # Uso de la aplicación
   
+ - Inicia con la vista del Login donde se cargaran los datos del usuario:
+  
+  ![](https://i.postimg.cc/NFPt52Rm/Whats-App-Image-2022-11-08-at-8-02-41-PM.jpg)
+  
+  Luego se mostrará el listado de personajes de Rick and Morty
+    - Teniendo la opción de buscar por nombre a los personajes.
+  ![](https://i.postimg.cc/nLzSdSmK/Whats-App-Image-2022-11-08-at-8-32-06-PM.jpg)
+  
+  Haciendo click en una de las cartas accedemos al detalle del personaje  
+
+  
+  ![](https://i.postimg.cc/kXdzvcgG/Whats-App-Image-2022-11-08-at-7-56-07-PM-3.jpg)
+
+   - Teniendo la opción de sumar a la lista de favoritos, a un personaje, haciendo click en el botón verde con simbolo de " + "
+  -  De esta forma accedemos al listado de favoritos.
+  
+  ![](https://i.postimg.cc/Cx5ZPbvT/Whats-App-Image-2022-11-08-at-7-56-07-PM-2.jpg)
+
+- Podemos modificar la vista de la aplicación desde los settings del navegador 
+![](https://i.postimg.cc/vmfxdb5G/Whats-App-Image-2022-11-08-at-8-40-22-PM.jpg)
+
+- Y activar el modo nocturno 
+Dandote la opción de verlo de esta forma 
+Ejemplos: 
+Lista de favoritos
+![](https://i.postimg.cc/FKx5V4CB/Imagen-de-Whats-App-2022-11-08-a-las-21-56-06.jpg)
+Detalle de personaje 
+![](https://i.postimg.cc/K8ZdcV87/detalle.jpg)
+   

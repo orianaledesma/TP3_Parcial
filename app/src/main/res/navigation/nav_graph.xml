@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.LoginFragment"
-        android:label="fragment_login"
+        android:label="@string/Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/Home"
         tools:layout="@layout/fragment_home" >
         <argument
             android:name="username"
@@ -34,12 +34,12 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="@string/Settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/characterDetailFragment"
         android:name="com.ort.edu.parcial_tp3.fragments.CharacterDetailFragment"
-        android:label="fragment_product_detail"
+        android:label="@string/Detalles"
         tools:layout="@layout/character_detail" >
         <argument
             android:name="character"
@@ -51,7 +51,7 @@
     <fragment
         android:id="@+id/favoritesFragment"
        android:name="com.ort.edu.parcial_tp3.fragments.FavoritesFragment"
-        android:label="fragment_favorites"
+        android:label="@string/Favoritos"
         tools:layout="@layout/fragment_favorites" >
         <action
             android:id="@+id/action_favoritesFragment_to_characterDetailFragment"

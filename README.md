@@ -57,5 +57,5 @@ Para la app se desarrolló 1 Activity y 5 Fragments.
   * Uso de la aplicación
   ![Alt text](https://i.postimg.cc/Cx5ZPbvT/Whats-App-Image-2022-11-08-at-7-56-07-PM-2.jpg?raw=true "Title")
   *Favoritos
-  https://i.postimg.cc/FKx5V4CB/Imagen-de-Whats-App-2022-11-08-a-las-21-56-06.jpg
+   ![Alt text]( https://i.postimg.cc/FKx5V4CB/Imagen-de-Whats-App-2022-11-08-a-las-21-56-06.jpg)
   
